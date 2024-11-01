@@ -9,8 +9,8 @@ as well as the functionality of the Calculation class that encapsulates these op
 
 from decimal import Decimal
 import pytest
-from calculator.calculation import Calculation
-from calculator.operations import add, subtract, multiply, divide
+from calculation.calculations import Calculation
+from calculaton.operations import add, subtract, multiply, divide
 
 def test_calculation_operations(a, b, operation, expected):
     """

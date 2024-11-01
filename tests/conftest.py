@@ -1,7 +1,7 @@
 import pytest
 from decimal import Decimal
 from faker import Faker
-from calculaton.operations import add, subtract, multiply, divide
+from calculator.operations import add, subtract, multiply, divide
 
 fake = Faker()
 

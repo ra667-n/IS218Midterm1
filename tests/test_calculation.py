@@ -12,6 +12,31 @@ import pytest
 from calculator.calculations import Calculation
 from calculator.operations import add, subtract, multiply, divide
 
+@pytest.fixture
+def a():
+    return Decimal('5')  
+
+@pytest.fixture
+def b():
+    return Decimal('3')  
+
+@pytest.fixture(params=[add, subtract, multiply, divide])
+def operation(request):
+    return request.param  
+
+@pytest.fixture
+def expected(a, b, operation):
+    if operation == add:
+        return a + b
+    elif operation == subtract:
+        return a - b
+    elif operation == multiply:
+        return a * b
+    elif operation == divide:
+        return a / b
+    else:
+        pytest.fail(f"Unexpected operation: {operation}")
+
 def test_calculation_operations(a, b, operation, expected):
     """
     Test calculation operations with various scenarios.

@@ -31,7 +31,7 @@ jobs:
     - name: Test with pytest
       run: |
         export PYTHONPATH=$(pwd):$PYTHONPATH  # Set PYTHONPATH to the project root
-        pytest --maxfail=1 --disable-warnings -q
+        pytest 
 
 
         

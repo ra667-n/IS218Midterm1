@@ -30,4 +30,10 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Test with pytest --pylint
       run: |
-        python -m pytest tests/
+        python -m pytest tests/test_app.py
+        python -m pytest tests/test_calculation.py
+        python -m pytest tests/test_calculations.py
+        python -m pytest tests/test_calculator.py
+        python -m pytest tests/test_plugins_greet.py
+        python -m pytest tests/test_main.py
+        

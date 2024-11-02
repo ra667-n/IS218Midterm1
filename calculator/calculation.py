@@ -4,17 +4,17 @@ class Calculation:
         self.a = a
         self.b = b
         self.operation = operation  
+    def __repr__(self):
+        return f"Calculation({self.a}, {self.b}, {self.operation.__name__})"
 
     def get_result(self):
-        if self.operation == "add":
-            result = self.add(self.a, self.b)
-        elif self.operation == "subtract":
-            result = self.subtract(self.a, self.b)
-        elif self.operation == "multiply":
-            result = self.multiply(self.a, self.b)
-        elif self.operation == "divide":
-             result = self.divide(self.a, self.b)
-        self.history.append(result)
+        try:
+            # Call the operation function with `a` and `b` as arguments
+            result = self.operation(self.a, self.b)
+        except ZeroDivisionError:
+            print("Error: Division by zero is not allowed.")
+            result = "ZeroDivisionError"
+        self.history.append(self)
         return result
     
     @staticmethod
@@ -28,17 +28,12 @@ class Calculation:
     @staticmethod
     def multiply(a,b):
         return a * b
-    
-    def divide(a,b) -> None:
-        try
-result = a/b 
-except ZeroDivisionError:
+    @staticmethod
+    def divide(a,b):
+        result = 0
+        try:
+            result = a/b 
+        except ZeroDivisionError:
+            print("Error: Division by zero is not allowed.")
+        return result
 
-print("Error: Division by zero is not allowed.")
-	
-print(f"The result of {a} divided by {b} is {result}.")
-
-test = Calculation(2, 4, 'add')
-test2 = Calculation.add(1,2)
-print(test.get_result())
-print(test2)

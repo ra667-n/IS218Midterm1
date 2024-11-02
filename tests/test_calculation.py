@@ -9,8 +9,8 @@ as well as the functionality of the Calculation class that encapsulates these op
 
 from decimal import Decimal
 import pytest
-from calculation.calculations import Calculation
-from calculaton.operations import add, subtract, multiply, divide
+from calculator.calculations import Calculation
+from calculator.operations import add, subtract, multiply, divide
 
 def test_calculation_operations(a, b, operation, expected):
     """
@@ -27,7 +27,7 @@ def test_calculation_operations(a, b, operation, expected):
         expected (Decimal): The expected result of the operation.
     """
     calc = Calculation(a, b, operation)  # Create a Calculation instance with the provided operands and operation.
-    assert calc.perform() == expected, f"Failed {operation.__name__} operation with {a} and {b}"  # Perform the operation and assert that the result matches the expected value.
+    assert calc.get_result() == expected, f"Failed {operation.__name__} operation with {a} and {b}"  # Perform the operation and assert that the result matches the expected value.
 
 def test_calculation_repr():
     """
@@ -49,4 +49,4 @@ def test_divide_by_zero():
     """
     calc = Calculation(Decimal('10'), Decimal('0'), divide)  # Create a Calculation instance with a zero divisor.
     with pytest.raises(ValueError, match="Cannot divide by zero"):  # Expect a ValueError to be raised.
-        calc.perform()  # Attempt to perform the calculation, which should trigger the ValueError.
+        calc.get_result()  # Attempt to perform the calculation, which should trigger the ValueError.

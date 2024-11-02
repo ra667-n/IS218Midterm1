@@ -1,5 +1,5 @@
 import sys
-from calculator import Calculator
+from calculator.calculation import Calculation
 from decimal import Decimal, InvalidOperation
 from app import App    
 
@@ -8,10 +8,10 @@ if __name__ == "__main__":
     
 def calculate_and_print(a, b, operation_name):
     operation_mappings = {
-        'add': Calculator.add,
-        'subtract': Calculator.subtract,
-        'multiply': Calculator.multiply,
-        'divide': Calculator.divide
+        'add': Calculation.add,
+        'subtract': Calculation.subtract,
+        'multiply': Calculation.multiply,
+        'divide': Calculation.divide
     }
 
     # Unified error handling for decimal conversion
@@ -37,7 +37,7 @@ def main():
     _, a, b, operation = sys.argv
     calculate_and_print(a, b, operation)
 def main():
-    calc = Calculator()
+    calc = Calculation()
     plugin_loader.load_plugins(calc)
 
     while True:
@@ -53,7 +53,7 @@ def main():
         print(calc.execute(command, *args)) 
 
 def repl():
-    calc = Calculator()
+    calc = Calculation()
     calc.load_plugins()
     while True:
         user_input = input("Enter command or 'exit': ").strip()

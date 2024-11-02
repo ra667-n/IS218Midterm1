@@ -19,8 +19,8 @@ Pandas has been integrated to manage a robust calculation history, enabling user
 Detailed application operations, data manipulations, errors, and informational messages. Differentiate log messages by severity (INFO, WARNING, ERROR) for effective monitoring.Dynamic logging configuration through environment variables for levels and output destinations.
 
 The following patterns have been added to the code:
-# Facade Pattern: Offer a simplified interface for complex Pandas data manipulations.
-# Command Pattern: Structure commands within the REPL for effective calculation and history management.
-# Factory Method, Singleton, and Strategy Patterns: Further enhance the application's code structure, flexibility, and scalability.
+### Facade Pattern: Offer a simplified interface for complex Pandas data manipulations.
+### Command Pattern: Structure commands within the REPL for effective calculation and history management.
+### Factory Method, Singleton, and Strategy Patterns: Further enhance the application's code structure, flexibility, and scalability.
 
-
+Video Demonstration: https://github.com/user-attachments/assets/9a112e22-d1c5-4a3f-9982-4a9f049b57be

@@ -50,7 +50,7 @@ def main():
         except ValueError:
             print("Error: Arguments must be numbers")
             continue
-        print(calc.execute(command, *args)) 
+        print(calc.get_result(command, *args)) 
 
 def repl():
     calc = Calculation()

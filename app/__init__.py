@@ -4,6 +4,7 @@ import importlib
 import sys
 from app.commands import CommandHandler, Command
 #from app.plugins.greet import GreetCommand 
+from app.plugins.Calculate import CalculateCommand
 from dotenv import load_dotenv
 import logging
 import logging.config
@@ -52,7 +53,14 @@ class App:
             item = getattr(plugin_module, item_name)
             if isinstance(item, type) and issubclass(item, Command) and item is not Command:
                 # Command names are now explicitly set to the plugin's folder name
-                self.command_handler.register_command(plugin_name, item())
+                if item_name.lower() == "calculatecommand":
+                # Register each operation directly
+                    self.command_handler.register_command('add', CalculateCommand('add'))
+                    self.command_handler.register_command('subtract', CalculateCommand('subtract'))
+                    self.command_handler.register_command('multiply', CalculateCommand('multiply'))
+                    self.command_handler.register_command('divide', CalculateCommand('divide'))
+                else:
+                    self.command_handler.register_command(plugin_name, item())
                 logging.info(f"Command '{plugin_name}' from plugin '{plugin_name}' registered.")
 
     def start(self):

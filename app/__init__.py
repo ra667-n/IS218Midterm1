@@ -3,6 +3,7 @@ import pkgutil
 import importlib
 import sys
 from app.commands import CommandHandler, Command
+#from app.plugins.greet import GreetCommand 
 from dotenv import load_dotenv
 import logging
 import logging.config
